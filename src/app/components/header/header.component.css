@@ -1,0 +1,39 @@
+nav {
+  background-color: white;
+  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+
+  a {
+    color: #262626;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    &:hover {
+      opacity: 0.8;
+      color: #dca73a;
+    }
+  }
+
+  .orange-btn {
+    color: white;
+
+    &:hover {
+      background-color: #dca73a;
+      color: white;
+      opacity: 0.8;
+    }
+  }
+
+  .active-link {
+    border-bottom: 2px solid orange;
+    padding-bottom: 2px;
+  }
+
+}

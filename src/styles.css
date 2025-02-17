@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.orange-btn {
+  color: white;
+  background-color: #dca73a;
+  border: #dca73a;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+}
+
+.orange-btn:hover {
+  background-color: #dca73a;
+  color: white;
+  opacity: 0.8;
+}
