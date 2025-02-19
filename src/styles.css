@@ -4,6 +4,13 @@
   box-sizing: border-box;
   font-family: sans-serif;
   line-height: 28px;
+  color: #112e41;
+
+  &::selection {
+    background: #444;
+    color: #fff;
+    text-shadow: none;
+  }
 }
 
 .center {
