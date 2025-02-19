@@ -1,7 +1,7 @@
 <header>
   <nav>
     <a routerLink="/" class="center">
-      <img ngSrc="logo.png" alt="logo" height="36" width="64"/>
+      <img ngSrc="logo.png" alt="logo" width="70" height="36"/>
       <h1>Aura</h1>
     </a>
 
@@ -11,9 +11,17 @@
     </div>
 
     <div class="center">
-      <a routerLink="/register" routerLinkActive="active-link" *ngIf="!authenticated">Register</a>
-      <a routerLink="/login" routerLinkActive="active-link" *ngIf="!authenticated">Login</a>
-      <a *ngIf="authenticated">Logout</a>
+      <ng-container *ngIf="!user; else loggedIn">
+        <a routerLink="/register" routerLinkActive="active-link">Register</a>
+        <a routerLink="/login" routerLinkActive="active-link">Login</a>
+      </ng-container>
+
+      <ng-template #loggedIn>
+        <a routerLink="/profile" routerLinkActive="active-link" class="orange-btn">
+          {{ user?.firstName }} {{ user?.lastName }}
+        </a>
+        <a (click)="logout()">Logout</a>
+      </ng-template>
     </div>
   </nav>
 </header>

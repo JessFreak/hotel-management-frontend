@@ -1,33 +1,31 @@
 <div class="container">
-  <ng-container *ngIf="isLogin; else registrationForm">
-    <div class="login form">
-      <header>Login</header>
-      <form action="#">
-        <input type="email" name="email" placeholder="Enter your email" required>
-        <input type="password" autocomplete="current-password" name="password" placeholder="Enter your password" required>
-        <a href="#">Forgot password?</a>
-        <button type="submit" class="orange-btn">Login</button>
-      </form>
-      <div class="signup">
-        <span class="signup">
-          Don't have an account?
-          <a (click)="toggleAuth()">Register</a>
-        </span>
-      </div>
+  <div class="login form" *ngIf="isLogin; else registrationForm">
+    <header>Login</header>
+    <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+      <input type="email" formControlName="email" placeholder="Enter your email" required>
+      <input type="password" autocomplete="current-password" formControlName="password" placeholder="Enter your password" required>
+      <a href="#">Forgot password?</a>
+      <button type="submit" class="orange-btn">Login</button>
+    </form>
+    <div class="signup">
+      <span class="signup">
+        Don't have an account?
+        <a (click)="toggleAuth()">Register</a>
+      </span>
     </div>
-  </ng-container>
+  </div>
 
   <ng-template #registrationForm>
     <div class="registration form">
       <header>Register</header>
-      <form action="#">
-        <input type="text" autocomplete="given-name" name="firstName" placeholder="Enter your first name" required>
-        <input type="text" autocomplete="family-name" name="lastName" placeholder="Enter your last name" required>
-        <input type="text" autocomplete="additional-name" name="middleName" placeholder="Enter your middle name">
-        <input type="text" autocomplete="off" name="passportNumber" placeholder="Enter your passport number" required>
-        <input type="email" autocomplete="email" name="email" placeholder="Enter your email" required>
-        <input type="password" autocomplete="new-password" name="password" placeholder="Create a password" required>
-        <input type="password" autocomplete="new-password" name="confirmPassword" placeholder="Confirm your password" required>
+      <form [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()">
+        <input type="text" autocomplete="given-name" formControlName="firstName" placeholder="Enter your first name" required>
+        <input type="text" autocomplete="family-name" formControlName="lastName" placeholder="Enter your last name" required>
+        <input type="text" autocomplete="additional-name" formControlName="middleName" placeholder="Enter your middle name">
+        <input type="text" autocomplete="off" formControlName="passportNumber" placeholder="Enter your passport number" required>
+        <input type="email" autocomplete="email" formControlName="email" placeholder="Enter your email" required>
+        <input type="password" autocomplete="new-password" formControlName="password" placeholder="Create a password" required>
+        <input type="password" autocomplete="new-password" formControlName="confirmPassword" placeholder="Confirm your password" required>
         <button type="submit" class="orange-btn">Signup</button>
       </form>
       <div class="signup">

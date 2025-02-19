@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NgIf, NgOptimizedImage } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-header',
@@ -12,8 +14,21 @@ import { NgIf, NgOptimizedImage } from '@angular/common';
     NgIf,
     NgOptimizedImage,
     RouterLinkActive,
-  ]
+  ],
 })
-export class HeaderComponent {
-  authenticated: boolean = false;
+export class HeaderComponent implements OnInit {
+  user: User | null = null;
+
+  constructor (private authService: AuthService) {}
+
+  ngOnInit (): void {
+    this.authService.getMe();
+    this.authService.user$.subscribe(user => {
+      this.user = user;
+    });
+  }
+
+  logout (): void {
+    this.authService.logout();
+  }
 }
