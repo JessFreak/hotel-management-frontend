@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="login form" *ngIf="isLogin; else registrationForm">
+  <div class="form" *ngIf="isLogin; else registrationForm">
     <header>Login</header>
     <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
       <input type="email" formControlName="email" placeholder="Enter your email" required>
@@ -16,7 +16,7 @@
   </div>
 
   <ng-template #registrationForm>
-    <div class="registration form">
+    <div class="form">
       <header>Register</header>
       <form [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()">
         <input type="text" autocomplete="given-name" formControlName="firstName" placeholder="Enter your first name" required>

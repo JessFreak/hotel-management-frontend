@@ -26,6 +26,7 @@
   border-radius: 5px;
   padding: 0.5rem 1rem;
   font-weight: 600;
+  font-size: 17px;
 }
 
 .orange-btn:hover {
@@ -33,4 +34,49 @@
   color: white;
   opacity: 0.8;
   cursor: pointer;
+}
+
+.secondary-btn {
+  background-color: #112e41;
+  color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.secondary-btn:hover {
+  background-color: #38586e;
+}
+
+input, select {
+  height: 48px;
+  padding: 0 15px;
+  font-size: 17px;
+  margin-bottom: 1.3rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+
+  &:focus {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  input, select {
+    border: 1px solid #dca73a;
+  }
 }
