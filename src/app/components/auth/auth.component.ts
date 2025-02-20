@@ -61,7 +61,7 @@ export class AuthComponent implements OnInit {
     const { email, password } = this.loginForm.value;
     this.authService.login({ email, password }).subscribe({
       next: () => {
-        this.authService.getMe();
+        this.authService.setUser();
         this.router.navigate(['/']);
       },
     });

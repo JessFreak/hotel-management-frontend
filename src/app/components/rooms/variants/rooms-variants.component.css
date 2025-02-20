@@ -40,15 +40,15 @@ section {
       }
 
       &:nth-child(1) .room-image {
-        background-image: url('../../../../public/rooms/standard.png');
+        background-image: url('../../../../../public/rooms/standard.png');
       }
 
       &:nth-child(2) .room-image {
-        background-image: url('../../../../public/rooms/semi-luxury.png');
+        background-image: url('../../../../../public/rooms/semi-luxury.png');
       }
 
       &:nth-child(3) .room-image {
-        background-image: url('../../../../public/rooms/luxury.png');
+        background-image: url('../../../../../public/rooms/luxury.png');
       }
 
       h4 {

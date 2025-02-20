@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
-import { RoomsComponent } from '../rooms/rooms.component';
+import { RoomsVariantsComponent } from '../rooms/variants/rooms-variants.component';
 
 @Component({
   selector: 'app-home',
   imports: [
     NgOptimizedImage,
-    RoomsComponent
+    RoomsVariantsComponent
   ],
   templateUrl: './home.component.html',
   standalone: true,

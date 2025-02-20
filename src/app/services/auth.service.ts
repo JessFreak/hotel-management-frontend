@@ -22,7 +22,7 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}/login`, loginForm);
   }
 
-  getMe(): void {
+  setUser(): void {
     this.http.get<User>(`${this.baseUrl}/me`)
       .subscribe(user => {
         this.userSubject.next(user);
