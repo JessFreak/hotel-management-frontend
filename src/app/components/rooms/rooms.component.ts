@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Room } from '../../models/room.model';
 import { RoomFilter, RoomService } from '../../services/rooms.service';
 import { NgForOf, TitleCasePipe } from '@angular/common';
@@ -23,6 +23,7 @@ export class RoomsComponent implements OnInit {
     minPrice: null,
     maxPrice: null,
   };
+  @Input() selectRoom!: OmitThisParameter<(roomNumber: number) => void>;
 
   constructor (private roomService: RoomService) {}
 

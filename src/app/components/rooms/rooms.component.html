@@ -33,7 +33,7 @@
   </div>
 
   <div class="rooms-container">
-    <div class="room" *ngFor="let room of rooms">
+    <div (click)="selectRoom(room.number)" class="room" *ngFor="let room of rooms">
       <h4>Room {{ room.number }} - {{ room.comfortLevel | titlecase }}</h4>
       <p>Capacity: {{ room.capacity }}</p>
       <p class="price">${{ room.price }} / night</p>

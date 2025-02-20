@@ -3,9 +3,10 @@ section {
   width: 100%;
 
   .filters {
+    width: 60%;
     display: flex;
-    gap: 1rem;
-    align-items: center;
+    justify-content: center;
+    gap: 20px;
     margin-bottom: 2rem;
     padding: 1rem;
     border: 1px solid #ddd;
@@ -23,14 +24,25 @@ section {
     flex-wrap: wrap;
     gap: 20px;
     margin: 2rem;
+    width: 60%;
 
     .room {
+      cursor: pointer;
       max-width: 230px;
       border: 1px solid #ddd;
       padding: 16px;
       border-radius: 8px;
       background-color: #f9f9f9;
       flex-grow: 1;
+
+      &:hover {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        background-color: #dca73a;
+
+        * {
+          color: white;
+        }
+      }
     }
   }
 }
