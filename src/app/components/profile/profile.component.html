@@ -1,1 +1,50 @@
-<p>profile works!</p>
+<header class="center">
+  <h1>Profile</h1>
+</header>
+
+<main class="center" *ngIf="user">
+  <section>
+    <h2>Personal Information</h2>
+
+    <div class="input-group">
+      <label for="firstName">First Name</label>
+      <input class="no-pointer" type="text" id="firstName" name="firstName" [(ngModel)]="user.firstName" readonly>
+    </div>
+
+    <div class="input-group">
+      <label for="lastName">First Name</label>
+      <input class="no-pointer" type="text" id="lastName" name="lastName" [(ngModel)]="user.lastName" readonly>
+    </div>
+
+    <div class="input-group">
+      <label for="middleName">Middle Name</label>
+      <input class="no-pointer" type="text" id="middleName" name="middleName" [(ngModel)]="user.middleName" readonly>
+    </div>
+
+    <div class="input-group">
+      <label for="passportNumber">Passport Number</label>
+      <input class="no-pointer" type="text" id="passportNumber" name="passportNumber" [(ngModel)]="user.passportNumber" readonly>
+    </div>
+
+    <div class="input-group">
+      <label for="email">Email</label>
+      <input class="no-pointer" type="email" id="email" name="email" [(ngModel)]="user.email" readonly>
+    </div>
+  </section>
+
+  <section>
+    <h2>Reservation History</h2>
+
+    <div class="reservations-list">
+      <div *ngFor="let reservation of reservations">
+        <h3>Room Number: {{ reservation.roomNumber }}</h3>
+        <p>Status: {{ reservation.status }}</p>
+        <p>
+          Check-in: {{ reservation.checkIn | date: 'dd.MM.yyyy' }}
+          Check-out: {{ reservation.checkOut | date: 'dd.MM.yyyy' }}
+        </p>
+        <button class="orange-btn">View details</button>
+      </div>
+    </div>
+  </section>
+</main>

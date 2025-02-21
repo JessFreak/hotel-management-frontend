@@ -5,3 +5,11 @@ export interface Room {
   comfortLevel: 'luxury' | 'semi-luxury' | 'standard';
   price: number;
 }
+
+export interface RoomFilter {
+  capacity?: number;
+  comfortLevel?: string;
+  minPrice?: number;
+  maxPrice?: number;
+  isAvailable?: boolean;
+}

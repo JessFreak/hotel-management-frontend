@@ -80,3 +80,8 @@ input, select {
     border: 1px solid #dca73a;
   }
 }
+
+.no-pointer {
+  pointer-events: none;
+  background-color: rgba(240, 240, 240, 0.5);
+}

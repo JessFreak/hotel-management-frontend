@@ -1,0 +1,30 @@
+header, h2 {
+  margin: 2rem;
+}
+
+main {
+  align-items: flex-start;
+
+  section {
+    margin: 0 auto;
+
+    .reservations-list {
+      div {
+        padding: 10px;
+        border: 1px solid #dca73a;
+        border-radius: 10px;
+
+        p {
+          font-size: 14px;
+          line-height: 22px;
+          color: #9095A0FF;
+        }
+
+        button {
+          margin-top: 10px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

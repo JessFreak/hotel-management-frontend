@@ -29,7 +29,6 @@
     >
   </div>
 
-
   <div class="input-group">
     <label for="room">Room:</label>
     <input
@@ -39,7 +38,7 @@
       #roomInput
       (click)="onRoomInputClick()"
       readonly
-      value="{{ reservation.roomNumber }}">
+      value="{{ reservation.roomNumber || null }}">
   </div>
 
   <div class="input-group">

@@ -2,7 +2,7 @@ import { Component, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
 import { RoomsComponent } from '../rooms/rooms.component';
 import { RoomsVariantsComponent } from '../rooms/variants/rooms-variants.component';
 import { NgIf } from '@angular/common';
-import { ReservationPayload } from '../../models/reservation.payload';
+import { ReservationPayload } from '../../models/reservation.model';
 import { FormsModule } from '@angular/forms';
 import { ReservationsService } from '../../services/reservations.service';
 import { Router } from '@angular/router';
@@ -21,11 +21,7 @@ import { Router } from '@angular/router';
 })
 export class ReservationComponent implements AfterViewInit {
   showRooms: boolean = false;
-  reservation: ReservationPayload = {
-    roomNumber: null,
-    checkIn: null,
-    note: null,
-  };
+  reservation: ReservationPayload = {};
 
   today: string = new Date().toISOString().split('T')[0];
 
@@ -46,7 +42,7 @@ export class ReservationComponent implements AfterViewInit {
     if (this.reservation.checkIn) {
       this.reservation.checkOut = this.reservation.checkOut &&
       this.reservation.checkOut < this.reservation.checkIn
-        ? null
+        ? undefined
         : this.reservation.checkOut;
     }
   }
