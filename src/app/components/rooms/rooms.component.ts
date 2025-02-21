@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Room } from '../../models/room.model';
-import { RoomFilter, RoomService } from '../../services/rooms.service';
+import { RoomService } from '../../services/rooms.service';
 import { NgForOf, TitleCasePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RoomFilter } from '../../models/room.filter';
 
 @Component({
   selector: 'app-rooms',

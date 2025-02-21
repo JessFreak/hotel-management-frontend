@@ -3,14 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { Room } from '../models/room.model';
-
-export interface RoomFilter {
-  capacity?: number | null;
-  comfortLevel?: string | null;
-  minPrice?: number | null;
-  maxPrice?: number | null;
-  isAvailable?: boolean;
-}
+import { RoomFilter } from '../models/room.filter';
 
 @Injectable({ providedIn: 'root' })
 export class RoomService {
@@ -27,7 +20,6 @@ export class RoomService {
       }
     }
 
-    console.log(params.toString());
     return this.http.get<Room[]>(this.baseUrl, { params });
   }
 }

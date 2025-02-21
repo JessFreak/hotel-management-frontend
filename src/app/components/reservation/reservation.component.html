@@ -4,16 +4,31 @@
   <h1>Reservation</h1>
 </header>
 
-<form class="center">
+<form class="center" (ngSubmit)="onSubmit()">
   <div class="input-group">
-    <label for="checkIn">Check In Date:</label>
-    <input type="date" id="checkIn" required>
+    <label for="checkIn">Check In:</label>
+    <input
+      type="date"
+      id="checkIn"
+      required
+      [(ngModel)]="reservation.checkIn"
+      name="checkInDate"
+      [min]="today"
+      (change)="updateMinCheckOut()"
+    >
   </div>
 
   <div class="input-group">
-    <label for="checkOut">Check Out Date:</label>
-    <input type="date" id="checkOut" required>
+    <label for="checkOut">Check Out (optional):</label>
+    <input
+      type="date"
+      id="checkOut"
+      [(ngModel)]="reservation.checkOut"
+      name="checkOutDate"
+      [min]="reservation.checkIn"
+    >
   </div>
+
 
   <div class="input-group">
     <label for="room">Room:</label>
@@ -21,9 +36,15 @@
       class="orange-btn"
       placeholder="Choose a room"
       id="room"
-      (focus)="onRoomInputFocus()"
+      #roomInput
+      (click)="onRoomInputClick()"
       readonly
-      value="{{ roomNumber }}">
+      value="{{ reservation.roomNumber }}">
+  </div>
+
+  <div class="input-group">
+    <label for="note">Note (optional):</label>
+    <input type="text" id="note" [(ngModel)]="reservation.note" name="note">
   </div>
 
   <button type="submit" class="orange-btn">Reserve Now</button>
