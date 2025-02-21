@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Reservation, ReservationFilter, ReservationPayload } from '../models/reservation.model';
+import { Reservation, ReservationDetails, ReservationFilter, ReservationPayload } from '../models/reservation.model';
 import { Observable } from 'rxjs';
 import { getHttpParams } from './utils';
 
@@ -21,5 +21,9 @@ export class ReservationsService {
     const params = getHttpParams(filter);
 
     return this.http.get<Reservation[]>(`${this.baseUrl}`, { params });
+  }
+
+  getReservationById (id: string): Observable<ReservationDetails> {
+    return this.http.get<ReservationDetails>(`${this.baseUrl}/${id}`);
   }
 }

@@ -43,7 +43,7 @@
           Check-in: {{ reservation.checkIn | date: 'dd.MM.yyyy' }}
           Check-out: {{ reservation.checkOut | date: 'dd.MM.yyyy' }}
         </p>
-        <button class="orange-btn">View details</button>
+        <button class="orange-btn" (click)="onReservationClick(reservation.id)">View details</button>
       </div>
     </div>
   </section>

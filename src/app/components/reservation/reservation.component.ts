@@ -1,7 +1,7 @@
 import { Component, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
 import { RoomsComponent } from '../rooms/rooms.component';
 import { RoomsVariantsComponent } from '../rooms/variants/rooms-variants.component';
-import { NgIf } from '@angular/common';
+import { DecimalPipe, NgIf } from '@angular/common';
 import { ReservationPayload } from '../../models/reservation.model';
 import { FormsModule } from '@angular/forms';
 import { ReservationsService } from '../../services/reservations.service';
@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
     RoomsVariantsComponent,
     NgIf,
     FormsModule,
+    DecimalPipe,
   ],
   templateUrl: './reservation.component.html',
   standalone: true,

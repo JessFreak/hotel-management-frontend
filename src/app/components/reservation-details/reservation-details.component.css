@@ -1,0 +1,44 @@
+main {
+  flex-direction: column;
+
+  header {
+    margin: 2rem;
+  }
+
+  div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+
+    section {
+      padding: 10px;
+      background-color: #f8f4fc;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+
+      h2 {
+        margin-bottom: 1rem;
+      }
+
+      svg {
+        border: #dca73a 2px solid;
+        border-radius: 50%;
+      }
+
+      p {
+        color: #888888
+      }
+
+      button {
+        width: 100%;
+        background-color: #c94a4a;
+        display: block;
+      }
+    }
+
+    .reservation-info {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+  }
+}

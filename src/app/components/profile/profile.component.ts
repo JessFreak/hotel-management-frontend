@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { DatePipe, NgForOf, NgIf } from '@angular/common';
 import { Reservation } from '../../models/reservation.model';
 import { ReservationsService } from '../../services/reservations.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -22,6 +23,7 @@ export class ProfileComponent implements OnInit {
   constructor (
     private authService: AuthService,
     private reservationsService: ReservationsService,
+    private router: Router,
   ) {}
 
   user: User | null = null;
@@ -45,5 +47,9 @@ export class ProfileComponent implements OnInit {
           this.reservations = reservations;
         },
       });
+  }
+
+  onReservationClick (id: string): void {
+    this.router.navigate([`/reservations/${id}`]);
   }
 }

@@ -38,7 +38,7 @@
       #roomInput
       (click)="onRoomInputClick()"
       readonly
-      value="{{ reservation.roomNumber || null }}">
+      [(ngModel)]="reservation.roomNumber">
   </div>
 
   <div class="input-group">
