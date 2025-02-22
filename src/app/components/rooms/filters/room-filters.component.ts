@@ -5,7 +5,6 @@ import { RoomFilter } from '../../../models/room.model';
 @Component({
   selector: 'app-filters',
   templateUrl: './room-filters.component.html',
-  styleUrls: ['./room-filters.component.css'],
   standalone: true,
   imports: [
     FormsModule,
