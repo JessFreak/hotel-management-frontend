@@ -1,0 +1,24 @@
+<table>
+  <thead>
+  <tr>
+    <th>Room</th>
+    <th>Status</th>
+    <th>Client</th>
+    <th>Check In</th>
+    <th>Check Out</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let reservation of reservations$ | async">
+    <td>{{ reservation.roomNumber }}</td>
+    <td>{{ reservation.status | titlecase }}</td>
+    <td>{{ reservation.clientId.firstName }} {{ reservation.clientId.lastName }} {{ reservation.clientId.passportNumber }}</td>
+    <td>{{ reservation.checkIn | date: 'dd.MM.yyyy' }}</td>
+    <td>{{ reservation.checkOut | date: 'dd.MM.yyyy' }}</td>
+    <td>
+      <button [routerLink]="['/reservations', reservation.id]" class="secondary-btn">View ➪</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

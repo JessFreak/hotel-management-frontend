@@ -1,83 +1,10 @@
 <main class="center">
   <h1>{{ tab | titlecase }} list</h1>
 
-  <div class="container" *ngIf="!isLoading; else loading">
-
-    <table *ngIf="tab === 'users'">
-      <thead>
-      <tr>
-        <th>Full Name</th>
-        <th>Email</th>
-        <th>Passport</th>
-        <th>Role</th>
-        <th>Reservations</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let user of users$ | async">
-        <td>{{ user.firstName }} {{ user.lastName }} {{ user.middleName }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.passportNumber }}</td>
-        <td>{{ user.role | titlecase }}</td>
-        <td>
-          <button class="secondary-btn">View ➪</button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-
-    <table *ngIf="tab === 'rooms'">
-      <thead>
-      <tr>
-        <th>Number</th>
-        <th>Capacity</th>
-        <th>Comfort Level</th>
-        <th>Price</th>
-        <th>Edit</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let room of rooms$ | async">
-        <td>{{ room.number }}</td>
-        <td>{{ room.capacity }}</td>
-        <td>{{ room.comfortLevel | titlecase }}</td>
-        <td>{{ room.price }}</td>
-        <td>
-          <button class="secondary-btn">Edit ✎</button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-
-    <table *ngIf="tab === 'reservations'">
-      <thead>
-      <tr>
-        <th>Room</th>
-        <th>Status</th>
-        <th>Client</th>
-        <th>Check In</th>
-        <th>Check Out</th>
-        <th>Details</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let reservation of reservations$ | async">
-        <td>{{ reservation.roomNumber }}</td>
-        <td>{{ reservation.status | titlecase }}</td>
-        <td>{{ reservation.clientId.firstName }} {{ reservation.clientId.lastName }} {{ reservation.clientId.passportNumber }}</td>
-        <td>{{ reservation.checkIn | date: 'dd.MM.yyyy' }}</td>
-        <td>{{ reservation.checkOut | date: 'dd.MM.yyyy' }}</td>
-        <td>
-          <button [routerLink]="['/reservations', reservation.id]" class="secondary-btn">View ➪</button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-
-  </div>
-
-  <ng-template #loading>
-    <p>Loading...</p>
-  </ng-template>
+  <section class="container">
+    <app-users-table *ngIf="tab === 'users'" />
+    <app-rooms-table *ngIf="tab === 'rooms'"/>
+    <app-reservations-table *ngIf="tab === 'reservations'"/>
+  </section>
 
 </main>
