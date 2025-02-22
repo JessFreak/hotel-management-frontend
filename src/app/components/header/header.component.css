@@ -36,4 +36,68 @@ nav {
     padding-bottom: 2px;
   }
 
+  .menu {
+    width: 100%;
+    max-width: 300px;
+    color: #353b3F;
+    position: relative;
+    cursor: pointer;
+    margin-left: 1rem;
+
+    &:hover  {
+      img {
+        transform: rotate(180deg);
+      }
+
+      .submenu {
+        top: 100%;
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+
+    * {
+      z-index: 1;
+    }
+
+    img {
+      position: relative;
+      top: 5px;
+      width: 1.3rem;
+      transition: transform .2s ease;
+    }
+
+    .submenu {
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      background-color: #353B3F;
+      border-radius: 1rem;
+      padding: 1rem;
+      transition: all .3s ease;
+
+      li {
+        display: flex;
+        color: white;
+        padding: 1rem;
+        border-radius: .5rem;
+        cursor: pointer;
+        transition: background .2s ease;
+
+        &:nth-child(1):hover {
+          background-color: #65D076;
+        }
+
+        &:nth-child(2):hover {
+          background-color: #FFD700;
+        }
+
+        &:nth-child(3):hover {
+          background-color: #42B3DB;
+        }
+      }
+    }
+  }
 }

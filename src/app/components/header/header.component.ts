@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { NgIf, NgOptimizedImage } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/user.model';
@@ -19,7 +19,10 @@ import { User } from '../../models/user.model';
 export class HeaderComponent implements OnInit {
   user: User | null = null;
 
-  constructor (private authService: AuthService) {}
+  constructor (
+    private authService: AuthService,
+    private router: Router,
+  ) {}
 
   ngOnInit (): void {
     this.authService.setUser();
@@ -30,5 +33,6 @@ export class HeaderComponent implements OnInit {
 
   logout (): void {
     this.authService.logout();
+    this.router.navigate(['/']);
   }
 }

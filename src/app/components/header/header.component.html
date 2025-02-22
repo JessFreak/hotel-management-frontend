@@ -8,6 +8,15 @@
     <div class="center">
       <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
       <a routerLink="/reservation" routerLinkActive="active-link" class="orange-btn">Reservation</a>
+      <div class="menu" routerLinkActive="active-link">
+        <a>Reception</a>
+        <img ngSrc="arrow-down.png" alt="arrow icon" height="24" width="24"/>
+        <ul class="submenu">
+          <li [routerLink]="['/reception']" [queryParams]="{ tab: 'reservations' }">Reservations</li>
+          <li [routerLink]="['/reception']" [queryParams]="{ tab: 'rooms' }">Rooms</li>
+          <li [routerLink]="['/reception']" [queryParams]="{ tab: 'users' }">Users</li>
+        </ul>
+      </div>
     </div>
 
     <div class="center">
