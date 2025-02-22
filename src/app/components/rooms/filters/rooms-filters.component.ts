@@ -3,14 +3,14 @@ import { FormsModule } from '@angular/forms';
 import { RoomFilter } from '../../../models/room.model';
 
 @Component({
-  selector: 'app-filters',
-  templateUrl: './room-filters.component.html',
+  selector: 'app-rooms-filters',
+  templateUrl: './rooms-filters.component.html',
   standalone: true,
   imports: [
     FormsModule,
   ]
 })
-export class FiltersComponent {
+export class RoomsFilterComponent {
   @Input() filters: RoomFilter = {};
   @Output() filtersChange = new EventEmitter<RoomFilter>();
   @Output() apply = new EventEmitter<void>();

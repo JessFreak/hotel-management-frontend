@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FiltersComponent } from '../../../../rooms/filters/room-filters.component';
+import { RoomsFilterComponent } from '../../../../rooms/filters/rooms-filters.component';
 import { Observable } from 'rxjs';
 import { Room, RoomFilter } from '../../../../../models/room.model';
 import { RoomService } from '../../../../../services/rooms.service';
@@ -9,7 +9,7 @@ import { TableComponent } from '../table.component';
 @Component({
   selector: 'app-rooms-table',
   imports: [
-    FiltersComponent,
+    RoomsFilterComponent,
     AsyncPipe,
     TitleCasePipe,
     NgForOf
