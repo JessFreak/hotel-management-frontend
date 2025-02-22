@@ -14,7 +14,6 @@ import { Router } from '@angular/router';
     RoomsVariantsComponent,
     NgIf,
     FormsModule,
-    DecimalPipe,
   ],
   templateUrl: './reservation.component.html',
   standalone: true,

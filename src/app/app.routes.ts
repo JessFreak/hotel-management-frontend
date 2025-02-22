@@ -12,5 +12,5 @@ export const routes: Routes = [
   { path: 'register', component: AuthComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'reservations/:id', component: ReservationDetailsComponent },
-  {  path: '**', redirectTo: '' },
+  { path: '**', redirectTo: '' },
 ];
