@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
-import { User } from '../../models/user.model';
+import { AuthService } from '../../../services/auth.service';
+import { User } from '../../../models/user.model';
 import { FormsModule } from '@angular/forms';
 import { DatePipe, NgForOf, NgIf } from '@angular/common';
-import { Reservation } from '../../models/reservation.model';
-import { ReservationsService } from '../../services/reservations.service';
+import { Reservation } from '../../../models/reservation.model';
+import { ReservationsService } from '../../../services/reservations.service';
 import { Router } from '@angular/router';
 
 @Component({

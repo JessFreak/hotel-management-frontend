@@ -1,7 +1,7 @@
 main {
   position: relative;
   color: #fff;
-  background-image: url('../../../../public/view.png');
+  background-image: url('../../../../../public/view.png');
   background-position: center;
   background-size: cover;
   height: 90vh;

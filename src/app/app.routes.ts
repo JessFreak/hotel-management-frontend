@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { ReservationComponent } from './components/reservation/reservation.component';
-import { AuthComponent } from './components/auth/auth.component';
-import { ProfileComponent } from './components/profile/profile.component';
-import { ReservationDetailsComponent } from './components/reservation-details/reservation-details.component';
-import { ReceptionComponent } from './components/reception/reception.component';
+import { HomeComponent } from './components/pages/home/home.component';
+import { ReservationComponent } from './components/pages/reservation/reservation.component';
+import { AuthComponent } from './components/pages/auth/auth.component';
+import { ProfileComponent } from './components/pages/profile/profile.component';
+import { ReservationDetailsComponent } from './components/pages/reservation-details/reservation-details.component';
+import { ReceptionComponent } from './components/pages/reception/reception.component';
 import { ReceptionGuard } from './services/reception.guard';
 
 export const routes: Routes = [

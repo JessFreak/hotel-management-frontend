@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
-import { RoomsVariantsComponent } from '../rooms/variants/rooms-variants.component';
+import { RoomsVariantsComponent } from '../../rooms/variants/rooms-variants.component';
 
 @Component({
   selector: 'app-home',

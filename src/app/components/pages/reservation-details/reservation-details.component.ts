@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ReservationsService } from '../../services/reservations.service';
-import { ReservationDetails } from '../../models/reservation.model';
+import { ReservationsService } from '../../../services/reservations.service';
+import { ReservationDetails } from '../../../models/reservation.model';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 
