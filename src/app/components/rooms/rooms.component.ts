@@ -4,6 +4,7 @@ import { RoomService } from '../../services/rooms.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgForOf, TitleCasePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { FiltersComponent } from './filters/room-filters.component';
 
 @Component({
   selector: 'app-rooms',
@@ -14,6 +15,7 @@ import { FormsModule } from '@angular/forms';
     NgForOf,
     TitleCasePipe,
     FormsModule,
+    FiltersComponent,
   ],
 })
 export class RoomsComponent implements OnInit {

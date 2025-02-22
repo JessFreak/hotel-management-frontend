@@ -1,36 +1,11 @@
 <section class="center">
   <h3>Available Rooms</h3>
 
-  <div class="filters">
-    <div class="input-group">
-      <label for="capacity">Capacity:</label>
-      <input min="1" type="number" id="capacity" [(ngModel)]="filters.capacity">
-    </div>
-
-    <div class="input-group">
-      <label for="comfortLevel">Comfort Level:</label>
-      <select id="comfortLevel" [(ngModel)]="filters.comfortLevel">
-        <option value="luxury">Luxury</option>
-        <option value="semi-luxury">Semi-Luxury</option>
-        <option value="standard">Standard</option>
-      </select>
-    </div>
-
-    <div class="input-group">
-      <label for="minPrice">Min Price:</label>
-      <input type="number" id="minPrice" [(ngModel)]="filters.minPrice">
-    </div>
-
-    <div class="input-group">
-      <label for="maxPrice">Max Price:</label>
-      <input min="{{ filters.minPrice || 0 }}" type="number" id="maxPrice" [(ngModel)]="filters.maxPrice">
-    </div>
-
-    <div class="input-group">
-      <button class="secondary-btn" (click)="applyFilters()">Apply Filters ⟲</button>
-      <button class="secondary-btn" (click)="clearFilters()">Clear Filters ✖</button>
-    </div>
-  </div>
+  <app-filters
+    [(filters)]="filters"
+    (apply)="applyFilters()"
+    (clear)="clearFilters()"
+  />
 
   <div class="rooms-container">
     <div (click)="selectRoom(room.number)" class="room" *ngFor="let room of rooms">
