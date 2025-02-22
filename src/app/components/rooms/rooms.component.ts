@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Room, RoomFilter } from '../../models/room.model';
 import { RoomService } from '../../services/rooms.service';
+import { ActivatedRoute } from '@angular/router';
 import { NgForOf, TitleCasePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -20,10 +21,18 @@ export class RoomsComponent implements OnInit {
   filters: RoomFilter = {};
   @Input() selectRoom!: OmitThisParameter<(roomNumber: number) => void>;
 
-  constructor (private roomService: RoomService) {}
+  constructor (
+    private roomService: RoomService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit (): void {
-    this.loadRooms();
+    this.route.queryParams.subscribe(params => {
+      if (params['type']) {
+        this.filters.comfortLevel = params['type'];
+      }
+      this.loadRooms();
+    });
   }
 
   loadRooms () {

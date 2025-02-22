@@ -2,23 +2,22 @@
   <h3>Our Rooms</h3>
 
   <div class="rooms-variants-container">
-    <div class="room-variant">
+    <div class="room-variant" (click)="navigateWithType('standard')">
       <div class="room-image"></div>
       <h4>Standard Room</h4>
       <p class="price">Average $100 / night</p>
     </div>
 
-    <div class="room-variant">
+    <div class="room-variant" (click)="navigateWithType('semi-luxury')">
       <div class="room-image"></div>
       <h4>Semi-Luxury Room</h4>
       <p class="price">Average $180 / night</p>
     </div>
 
-    <div class="room-variant">
+    <div class="room-variant" (click)="navigateWithType('luxury')">
       <div class="room-image"></div>
       <h4>Luxury Room</h4>
       <p class="price">Average $300 / night</p>
     </div>
-
   </div>
 </section>
