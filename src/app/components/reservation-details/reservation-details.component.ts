@@ -25,7 +25,23 @@ export class ReservationDetailsComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
 
     if (this.id) {
+      this.loadReservation();
+    }
+  }
+
+  loadReservation() {
+    if (this.id) {
       this.reservation$ = this.reservationsService.getReservationById(this.id);
+    }
+  }
+
+  cancelReservation() {
+    if (this.id) {
+      this.reservationsService.cancelReservation(this.id).subscribe({
+        next: () => {
+          this.loadReservation();
+        },
+      });
     }
   }
 }

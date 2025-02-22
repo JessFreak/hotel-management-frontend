@@ -26,4 +26,8 @@ export class ReservationsService {
   getReservationById (id: string): Observable<ReservationDetails> {
     return this.http.get<ReservationDetails>(`${this.baseUrl}/${id}`);
   }
+
+  cancelReservation (id: string): Observable<{}> {
+    return this.http.patch<{}>(`${this.baseUrl}/${id}/cancel`, {});
+  }
 }

@@ -37,7 +37,14 @@
 
       <h4>Total Price: ${{ details.totalPrice }}</h4>
 
-      <button *ngIf="['reserved', 'check-in'].includes(details.reservation.status)" class="orange-btn">Cancel</button>
+      <button
+        *ngIf="details.reservation.status === 'reserved'"
+        class="orange-btn"
+        (click)="cancelReservation()"
+      >
+        Cancel
+      </button>
+
     </section>
   </div>
 
