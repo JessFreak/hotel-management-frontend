@@ -1,22 +1,24 @@
-<table>
-  <thead>
-  <tr>
-    <th>Full Name</th>
-    <th>Email</th>
-    <th>Passport</th>
-    <th>Role</th>
-    <th>Reservations</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let user of users$ | async">
-    <td>{{ user.firstName }} {{ user.lastName }} {{ user.middleName }}</td>
-    <td>{{ user.email }}</td>
-    <td>{{ user.passportNumber }}</td>
-    <td>{{ user.role | titlecase }}</td>
-    <td>
-      <button class="secondary-btn">View ➪</button>
-    </td>
-  </tr>
-  </tbody>
-</table>
+<div class="tableFixHead">
+  <table>
+    <thead>
+    <tr>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Passport</th>
+      <th>Role</th>
+      <th>Reservations</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users$ | async">
+      <td>{{ user.firstName }} {{ user.lastName }} {{ user.middleName }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.passportNumber }}</td>
+      <td>{{ user.role | titlecase }}</td>
+      <td>
+        <button class="secondary-btn">View ➪</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

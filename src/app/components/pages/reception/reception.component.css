@@ -15,6 +15,17 @@ main {
   background: linear-gradient(20deg, #dca73a, #f1d88f);
 }
 
+.tableFixHead {
+  overflow: auto;
+  height: 60vh;
+
+  thead th {
+    position: sticky;
+    top: 0;
+    z-index: 0;
+  }
+}
+
 table {
   margin: auto;
   border-collapse: collapse;
