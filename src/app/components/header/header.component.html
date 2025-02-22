@@ -8,7 +8,7 @@
     <div class="center">
       <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
       <a routerLink="/reservation" routerLinkActive="active-link" class="orange-btn">Reservation</a>
-      <div class="menu" routerLinkActive="active-link">
+      <div *ngIf="user?.role === 'receptionist'" class="menu" routerLinkActive="active-link">
         <a>Reception</a>
         <img ngSrc="arrow-down.png" alt="arrow icon" height="24" width="24"/>
         <ul class="submenu">
