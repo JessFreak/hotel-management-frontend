@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { Reservation, ReservationDetails, ReservationFilters, ReservationPayload } from '../models/reservation.model';
 import { Observable } from 'rxjs';
 import { getHttpParams } from './utils';
-import { log } from '@angular-devkit/build-angular/src/builders/ssr-dev-server';
 
 @Injectable({
   providedIn: 'root',

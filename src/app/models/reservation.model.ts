@@ -25,7 +25,7 @@ export interface ReservationPayload {
 }
 
 export interface ReservationFilters {
-  roomNumber?: number ;
+  roomNumber?: number;
   checkIn?: Date;
   checkOut?: Date;
   clientId?: string;

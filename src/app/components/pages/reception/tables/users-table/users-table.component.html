@@ -22,7 +22,7 @@
       <td>{{ user.passportNumber }}</td>
       <td>{{ user.role | titlecase }}</td>
       <td>
-        <button class="secondary-btn">View ➪</button>
+        <button (click)="navigateToReservations(user.id)" class="secondary-btn">View ➪</button>
       </td>
     </tr>
     </tbody>

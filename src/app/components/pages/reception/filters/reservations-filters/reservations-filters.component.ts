@@ -7,6 +7,7 @@ import { Room } from '../../../../../models/room.model';
 import { NgForOf } from '@angular/common';
 import { User } from '../../../../../models/user.model';
 import { UserService } from '../../../../../services/user.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-reservations-filters',
@@ -22,6 +23,7 @@ export class ReservationsFiltersComponent extends BaseFiltersComponent<Reservati
   constructor (
     private roomService: RoomService,
     private usersService: UserService,
+    private route: ActivatedRoute,
   ) {
     super();
   }
@@ -35,7 +37,26 @@ export class ReservationsFiltersComponent extends BaseFiltersComponent<Reservati
     this.usersService.getUsers({})
       .subscribe((clients) => {
         this.clients = clients;
+
+        const queryParams = this.route.snapshot.queryParams;
+
+        if (queryParams['clientId']) {
+          this.filters.clientId = queryParams['clientId'];
+          this.applyFilters();
+
+          const selectedClient = this.clients.find(client => client.id === queryParams['clientId']);
+          if (selectedClient) {
+            this.clientName = `${selectedClient.firstName} ${selectedClient.lastName} ${selectedClient.passportNumber}`;
+          }
+        }
       });
+
+    const queryParams = this.route.snapshot.queryParams;
+
+    if (queryParams['roomNumber']) {
+      this.filters.roomNumber = parseInt(queryParams['roomNumber'], 10);
+      this.applyFilters();
+    }
   }
 
   onClientNameChange(): void {

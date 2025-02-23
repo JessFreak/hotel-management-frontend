@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrl: './rooms-variants.component.css'
 })
 export class RoomsVariantsComponent {
-  constructor(private router: Router) {}
+  constructor (private router: Router) {}
 
   navigateWithType(type: string): void {
     this.router.navigate(['/reservation'], { queryParams: { type } });

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { User } from '../../../../../models/user.model';
 import { AsyncPipe, NgForOf, TitleCasePipe } from '@angular/common';
 import { UsersFiltersComponent } from '../../filters/users-filters/users-filters.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users-table',
@@ -21,11 +22,18 @@ import { UsersFiltersComponent } from '../../filters/users-filters/users-filters
 export class UsersTableComponent extends TableComponent {
   users$: Observable<User[]> | null = null;
 
-  constructor (private userService: UserService) {
+  constructor (
+    private userService: UserService,
+    private router: Router,
+  ) {
     super();
   }
 
   override loadData () {
     this.users$ = this.userService.getUsers(this.filters);
+  }
+
+  navigateToReservations(clientId: string): void {
+    this.router.navigate(['/reception'], { queryParams: { clientId, tab: 'reservations' } });
   }
 }
