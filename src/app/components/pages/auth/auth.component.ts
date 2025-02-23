@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { AuthService } from '../../../services/auth.service';
 
@@ -29,25 +29,18 @@ export class AuthComponent implements OnInit {
     });
 
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+      email: [''],
+      password: ['']
     });
 
     this.registerForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
+      firstName: [''],
+      lastName: [''],
       middleName: [''],
-      passportNumber: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required]
-    }, { validators: this.passwordsMatch });
-  }
-
-  passwordsMatch(form: FormGroup) {
-    const pass = form.get('password')?.value;
-    const confirmPass = form.get('confirmPassword')?.value;
-    return pass === confirmPass ? null : { mismatch: true };
+      passportNumber: [''],
+      email: [''],
+      password: [''],
+    });
   }
 
   toggleAuth(): void {
@@ -56,11 +49,10 @@ export class AuthComponent implements OnInit {
   }
 
   onLoginSubmit(): void {
-    if (this.loginForm.invalid) return;
-
     const { email, password } = this.loginForm.value;
     this.authService.login({ email, password }).subscribe({
       next: () => {
+        localStorage.setItem('isAuthorised', 'true');
         this.authService.setUser();
         this.router.navigate(['/']);
       },
@@ -68,8 +60,6 @@ export class AuthComponent implements OnInit {
   }
 
   onRegisterSubmit(): void {
-    if (this.registerForm.invalid) return;
-
     const { firstName, lastName, middleName, passportNumber, email, password } = this.registerForm.value;
     this.authService.register({ firstName, lastName, middleName, passportNumber, email, password }).subscribe({
       next: () => {

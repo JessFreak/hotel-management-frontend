@@ -12,7 +12,7 @@ export class AuthService {
   private userSubject = new BehaviorSubject<User | null>(null);
   user$ = this.userSubject.asObservable();
 
-  constructor (private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   register (registerForm: RegisterPayload): Observable<{}> {
     return this.http.post(`${this.baseUrl}/register`, registerForm);
@@ -22,17 +22,21 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}/login`, loginForm);
   }
 
-  setUser(): void {
-    this.http.get<User>(`${this.baseUrl}/me`)
+  setUser (): void {
+    if (!localStorage.getItem('isAuthorised')) return;
+
+    this.http.get<User>(`${this.baseUrl}/me`, { withCredentials: true })
       .subscribe(user => {
         this.userSubject.next(user);
+        localStorage.setItem('isAuthorised', 'true');
       });
   }
 
   logout(): void {
-    this.http.post(`${this.baseUrl}/logout`, {})
+    this.http.post(`${this.baseUrl}/logout`, {}, { withCredentials: true })
       .subscribe(() => {
         this.userSubject.next(null);
+        localStorage.removeItem('isAuthorised');
       });
   }
 }
