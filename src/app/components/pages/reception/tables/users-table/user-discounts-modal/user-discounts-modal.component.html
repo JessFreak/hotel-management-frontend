@@ -1,0 +1,26 @@
+<div class="modal-overlay center">
+  <div class="modal-content">
+    <h2>User Discounts</h2>
+    <ul *ngIf="usersDiscounts$ | async as discounts; else noDiscounts">
+      <li *ngFor="let discount of discounts">
+        <span>{{ discount.name }}</span>
+        <span>{{ discount.percentage }}%</span>
+      </li>
+    </ul>
+    <ng-template #noDiscounts>
+      <p>No discounts found for this user.</p>
+    </ng-template>
+    <button class="secondary-btn add-discount" (click)="addDiscount()">Add +</button>
+
+    <div *ngIf="showAddDiscountInput">
+      <select id="discountId" [(ngModel)]="selectedDiscountId">
+        <option *ngFor="let discount of allDiscounts$ | async" [value]="discount.id">
+          {{ discount.name }} - {{ discount.percentage }}%
+        </option>
+      </select>
+      <button class="secondary-btn save-discount" (click)="saveDiscount()">Save</button>
+    </div>
+
+    <button class="secondary-btn center close" (click)="onClose()">✖</button>
+  </div>
+</div>

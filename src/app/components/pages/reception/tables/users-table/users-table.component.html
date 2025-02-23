@@ -13,6 +13,7 @@
       <th>Passport</th>
       <th>Role</th>
       <th>Reservations</th>
+      <th>Discounts</th>
     </tr>
     </thead>
     <tbody>
@@ -25,12 +26,15 @@
         <td>
           <button (click)="navigateToReservations(user.id)" class="secondary-btn">View ➪</button>
         </td>
+        <td>
+          <button class="secondary-btn" (click)="showUserDiscounts(user.id)">Edit ✎</button>
+        </td>
       </tr>
     </ng-container>
 
     <ng-template #noData>
       <tr>
-        <td colspan="5" class="no-data-message">
+        <td colspan="6" class="no-data-message">
           <h2>No users found</h2>
         </td>
       </tr>
@@ -38,3 +42,9 @@
     </tbody>
   </table>
 </div>
+
+<app-user-discounts-modal
+  *ngIf="isModalOpen"
+  [clientId]="selectedClientId"
+  (close)="closeModal()"
+></app-user-discounts-modal>
