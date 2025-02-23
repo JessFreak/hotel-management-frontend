@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { Room, RoomFilter } from '../models/room.model';
-import { getHttpParams } from './utils';
+import { getHttpParams } from '../utils/getHttpParams';
 
 @Injectable({ providedIn: 'root' })
 export class RoomService {

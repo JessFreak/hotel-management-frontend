@@ -5,7 +5,7 @@ import { AuthComponent } from './components/pages/auth/auth.component';
 import { ProfileComponent } from './components/pages/profile/profile.component';
 import { ReservationDetailsComponent } from './components/pages/reservation-details/reservation-details.component';
 import { ReceptionComponent } from './components/pages/reception/reception.component';
-import { ReceptionGuard } from './services/reception.guard';
+import { ReceptionGuard } from './utils/reception.guard';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
