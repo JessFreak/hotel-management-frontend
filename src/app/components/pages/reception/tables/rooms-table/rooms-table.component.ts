@@ -6,6 +6,7 @@ import { RoomService } from '../../../../../services/rooms.service';
 import { AsyncPipe, NgForOf, NgIf, TitleCasePipe } from '@angular/common';
 import { TableComponent } from '../table.component';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-rooms-table',
@@ -14,7 +15,8 @@ import { Router } from '@angular/router';
     AsyncPipe,
     TitleCasePipe,
     NgForOf,
-    NgIf
+    NgIf,
+    FormsModule,
   ],
   templateUrl: './rooms-table.component.html',
   standalone: true,
@@ -22,7 +24,9 @@ import { Router } from '@angular/router';
 })
 export class RoomsTableComponent extends TableComponent {
   rooms$: Observable<Room[]> | null = null;
-  override filters: RoomFilter = {}
+  override filters: RoomFilter = {};
+  editingRoom: Room | null = null;
+  editedRoom: Room | null = null;
 
   constructor (
     private roomService: RoomService,
@@ -32,10 +36,25 @@ export class RoomsTableComponent extends TableComponent {
   }
 
   override loadData () {
-    this.rooms$ = this.roomService.getRooms(this.filters)
+    this.rooms$ = this.roomService.getRooms(this.filters);
   }
 
   navigateToReservations(roomNumber: number): void {
     this.router.navigate(['/reception'], { queryParams: { roomNumber, tab: 'reservations' } });
+  }
+
+  editRoom(room: Room): void {
+    this.editingRoom = room;
+    this.editedRoom = { ...room }
+  }
+
+  saveRoom(): void {
+    if (this.editedRoom) {
+      this.roomService.updateRoom(this.editedRoom.number, this.editedRoom).subscribe(() => {
+        this.editingRoom = null;
+        this.editedRoom = null;
+        this.loadData();
+      });
+    }
   }
 }

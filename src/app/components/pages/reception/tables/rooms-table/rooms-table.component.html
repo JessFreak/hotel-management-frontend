@@ -19,16 +19,39 @@
     <tbody>
     <ng-container *ngIf="(rooms$ | async)?.length; else noData">
       <tr *ngFor="let room of rooms$ | async">
-        <td>{{ room.number }}</td>
-        <td>{{ room.capacity }}</td>
-        <td>{{ room.comfortLevel | titlecase }}</td>
-        <td>{{ room.price }}</td>
-        <td>
-          <button class="secondary-btn">Edit ✎</button>
-        </td>
-        <td>
-          <button (click)="navigateToReservations(room.number)" class="secondary-btn">View ➪</button>
-        </td>
+        <ng-container *ngIf="editingRoom?.id !== room.id; else editRow">
+          <td>{{ room.number }}</td>
+          <td>{{ room.capacity }}</td>
+          <td>{{ room.comfortLevel | titlecase }}</td>
+          <td>{{ room.price }}</td>
+          <td>
+            <button (click)="editRoom(room)" class="secondary-btn">Edit ✎</button>
+          </td>
+          <td>
+            <button (click)="navigateToReservations(room.number)" class="secondary-btn">View ➪</button>
+          </td>
+        </ng-container>
+
+        <ng-template #editRow>
+          <ng-container *ngIf="editedRoom">
+            <td>{{ room.number }}</td>
+            <td><input type="number" [(ngModel)]="editedRoom.capacity"></td>
+            <td>
+              <select id="comfortLevel" [(ngModel)]="editedRoom.comfortLevel">
+                <option value="luxury">Luxury</option>
+                <option value="semi-luxury">Semi-Luxury</option>
+                <option value="standard">Standard</option>
+              </select>
+            </td>
+            <td><input type="number" [(ngModel)]="editedRoom.price"></td>
+            <td>
+              <button (click)="saveRoom()" class="secondary-btn">Save ↓</button>
+            </td>
+            <td>
+              <button (click)="navigateToReservations(editedRoom.number)" class="secondary-btn">View ➪</button>
+            </td>
+          </ng-container>
+        </ng-template>
       </tr>
     </ng-container>
 
