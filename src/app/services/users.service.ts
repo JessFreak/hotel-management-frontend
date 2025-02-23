@@ -6,7 +6,7 @@ import { User, UserFilters } from '../models/user.model';
 import { getHttpParams } from '../utils/getHttpParams';
 
 @Injectable({ providedIn: 'root' })
-export class UserService {
+export class UsersService {
   private readonly baseUrl = `${environment.apiUrl}/users`;
 
   constructor (private http: HttpClient) {}

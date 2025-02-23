@@ -1,0 +1,62 @@
+<button class="secondary-btn add-btn" (click)="addNewDiscount()">Add Discount ＋</button>
+
+<div class="tableFixHead">
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Percentage</th>
+      <th>Save</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngIf="(discounts$ | async)?.length || newDiscount; else noData">
+      <tr *ngIf="newDiscount">
+        <td><input type="text" [(ngModel)]="newDiscount.name" /></td>
+        <td><input type="number" [(ngModel)]="newDiscount.percentage" /></td>
+        <td>
+          <button class="secondary-btn" (click)="saveNewDiscount()">Save ↓</button>
+        </td>
+        <td>
+          <button class="secondary-btn" (click)="cancelNewDiscount()">Cancel ✖</button>
+        </td>
+      </tr>
+
+      <tr *ngFor="let discount of discounts$ | async">
+        <ng-container *ngIf="editingDiscount?.id !== discount.id; else editRow">
+          <td>{{ discount.name }}</td>
+          <td>{{ discount.percentage }}</td>
+          <td>
+            <button class="secondary-btn" (click)="editDiscount(discount)">Edit ✎</button>
+          </td>
+          <td>
+            <button class="secondary-btn" (click)="deleteDiscount(discount.id)">Delete ✖</button>
+          </td>
+        </ng-container>
+
+        <ng-template #editRow>
+          <ng-container *ngIf="editedDiscount">
+            <td><input type="text" [(ngModel)]="editedDiscount.name" /></td>
+            <td><input type="number" [(ngModel)]="editedDiscount.percentage" /></td>
+            <td>
+              <button class="secondary-btn" (click)="saveDiscount()">Save ↓</button>
+            </td>
+            <td>
+              <button class="secondary-btn" (click)="deleteDiscount(discount.id)">Delete ✖</button>
+            </td>
+          </ng-container>
+        </ng-template>
+      </tr>
+    </ng-container>
+
+    <ng-template #noData>
+      <tr>
+        <td colspan="4" class="no-data-message">
+          <h2>No discounts found</h2>
+        </td>
+      </tr>
+    </ng-template>
+    </tbody>
+  </table>
+</div>

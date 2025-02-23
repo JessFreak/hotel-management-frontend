@@ -58,3 +58,8 @@ table {
     background-color: rgba(255, 255, 255, 0.3);
   }
 }
+
+.add-btn {
+  display: block;
+  margin: 0 0 10px auto;
+}

@@ -6,7 +6,7 @@ import { RoomService } from '../../../../../services/rooms.service';
 import { Room } from '../../../../../models/room.model';
 import { NgForOf } from '@angular/common';
 import { User } from '../../../../../models/user.model';
-import { UserService } from '../../../../../services/user.service';
+import { UsersService } from '../../../../../services/users.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -22,7 +22,7 @@ export class ReservationsFiltersComponent extends BaseFiltersComponent<Reservati
 
   constructor (
     private roomService: RoomService,
-    private usersService: UserService,
+    private usersService: UsersService,
     private route: ActivatedRoute,
   ) {
     super();

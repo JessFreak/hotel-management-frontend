@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TableComponent } from '../table.component';
-import { UserService } from '../../../../../services/user.service';
+import { UsersService } from '../../../../../services/users.service';
 import { Observable } from 'rxjs';
 import { User } from '../../../../../models/user.model';
 import { AsyncPipe, NgForOf, NgIf, TitleCasePipe } from '@angular/common';
@@ -24,7 +24,7 @@ export class UsersTableComponent extends TableComponent {
   users$: Observable<User[]> | null = null;
 
   constructor (
-    private userService: UserService,
+    private userService: UsersService,
     private router: Router,
   ) {
     super();
