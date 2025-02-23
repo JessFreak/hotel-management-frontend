@@ -30,4 +30,8 @@ export class ReservationsService {
   cancelReservation (id: string): Observable<{}> {
     return this.http.patch<{}>(`${this.baseUrl}/${id}/cancel`, {});
   }
+
+  updateReservationStatus (id: string, status: string): Observable<{}> {
+    return this.http.patch<{}>(`${this.baseUrl}/${id}/${status}`, {});
+  }
 }

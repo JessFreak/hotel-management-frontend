@@ -5,7 +5,6 @@ import { TableComponent } from '../table.component';
 import { ReservationsService } from '../../../../../services/reservations.service';
 import { AsyncPipe, DatePipe, NgForOf, NgIf, TitleCasePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { RoomsFilterComponent } from '../../filters/rooms-filters/rooms-filters.component';
 import { ReservationsFiltersComponent } from '../../filters/reservations-filters/reservations-filters.component';
 
 @Component({
@@ -16,9 +15,8 @@ import { ReservationsFiltersComponent } from '../../filters/reservations-filters
     RouterLink,
     AsyncPipe,
     NgForOf,
-    RoomsFilterComponent,
     ReservationsFiltersComponent,
-    NgIf
+    NgIf,
   ],
   templateUrl: './reservations-table.component.html',
   standalone: true,

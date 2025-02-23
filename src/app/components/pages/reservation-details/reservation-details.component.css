@@ -29,7 +29,12 @@ main {
         color: #888888
       }
 
-      button {
+      div {
+        display: flex;
+        align-items: center;
+      }
+
+      .cancel-button {
         width: 100%;
         background-color: #c94a4a;
         display: block;
