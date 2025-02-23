@@ -16,15 +16,25 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let user of users$ | async">
-      <td>{{ user.firstName }} {{ user.lastName }} {{ user.middleName }}</td>
-      <td>{{ user.email }}</td>
-      <td>{{ user.passportNumber }}</td>
-      <td>{{ user.role | titlecase }}</td>
-      <td>
-        <button (click)="navigateToReservations(user.id)" class="secondary-btn">View ➪</button>
-      </td>
-    </tr>
+    <ng-container *ngIf="(users$ | async)?.length; else noData">
+      <tr *ngFor="let user of users$ | async">
+        <td>{{ user.firstName }} {{ user.lastName }} {{ user.middleName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.passportNumber }}</td>
+        <td>{{ user.role | titlecase }}</td>
+        <td>
+          <button (click)="navigateToReservations(user.id)" class="secondary-btn">View ➪</button>
+        </td>
+      </tr>
+    </ng-container>
+
+    <ng-template #noData>
+      <tr>
+        <td colspan="5" class="no-data-message">
+          <h2>No users found</h2>
+        </td>
+      </tr>
+    </ng-template>
     </tbody>
   </table>
 </div>

@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Reservation } from '../../../../../models/reservation.model';
 import { TableComponent } from '../table.component';
 import { ReservationsService } from '../../../../../services/reservations.service';
-import { AsyncPipe, DatePipe, NgForOf, TitleCasePipe } from '@angular/common';
+import { AsyncPipe, DatePipe, NgForOf, NgIf, TitleCasePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { RoomsFilterComponent } from '../../filters/rooms-filters/rooms-filters.component';
 import { ReservationsFiltersComponent } from '../../filters/reservations-filters/reservations-filters.component';
@@ -17,7 +17,8 @@ import { ReservationsFiltersComponent } from '../../filters/reservations-filters
     AsyncPipe,
     NgForOf,
     RoomsFilterComponent,
-    ReservationsFiltersComponent
+    ReservationsFiltersComponent,
+    NgIf
   ],
   templateUrl: './reservations-table.component.html',
   standalone: true,

@@ -17,16 +17,26 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let reservation of reservations$ | async">
-      <td>{{ reservation.roomNumber }}</td>
-      <td>{{ reservation.status | titlecase }}</td>
-      <td>{{ reservation.clientId.firstName }} {{ reservation.clientId.lastName }} {{ reservation.clientId.passportNumber }}</td>
-      <td>{{ reservation.checkIn | date: 'dd.MM.yyyy' }}</td>
-      <td>{{ reservation.checkOut | date: 'dd.MM.yyyy' }}</td>
-      <td>
-        <button [routerLink]="['/reservations', reservation.id]" class="secondary-btn">View ➪</button>
-      </td>
-    </tr>
+    <ng-container *ngIf="(reservations$ | async)?.length; else noData">
+      <tr *ngFor="let reservation of reservations$ | async">
+        <td>{{ reservation.roomNumber }}</td>
+        <td>{{ reservation.status | titlecase }}</td>
+        <td>{{ reservation.clientId.firstName }} {{ reservation.clientId.lastName }} {{ reservation.clientId.passportNumber }}</td>
+        <td>{{ reservation.checkIn | date: 'dd.MM.yyyy' }}</td>
+        <td>{{ reservation.checkOut | date: 'dd.MM.yyyy' }}</td>
+        <td>
+          <button [routerLink]="['/reservations', reservation.id]" class="secondary-btn">View ➪</button>
+        </td>
+      </tr>
+    </ng-container>
+
+    <ng-template #noData>
+      <tr>
+        <td colspan="6" class="no-data-message">
+          <h2>No reservations found</h2>
+        </td>
+      </tr>
+    </ng-template>
     </tbody>
   </table>
 </div>

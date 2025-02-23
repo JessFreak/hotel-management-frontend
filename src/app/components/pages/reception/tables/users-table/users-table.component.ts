@@ -3,7 +3,7 @@ import { TableComponent } from '../table.component';
 import { UserService } from '../../../../../services/user.service';
 import { Observable } from 'rxjs';
 import { User } from '../../../../../models/user.model';
-import { AsyncPipe, NgForOf, TitleCasePipe } from '@angular/common';
+import { AsyncPipe, NgForOf, NgIf, TitleCasePipe } from '@angular/common';
 import { UsersFiltersComponent } from '../../filters/users-filters/users-filters.component';
 import { Router } from '@angular/router';
 
@@ -13,7 +13,8 @@ import { Router } from '@angular/router';
     AsyncPipe,
     NgForOf,
     TitleCasePipe,
-    UsersFiltersComponent
+    UsersFiltersComponent,
+    NgIf
   ],
   templateUrl: './users-table.component.html',
   standalone: true,

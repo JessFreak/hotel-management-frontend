@@ -16,6 +16,8 @@ main {
 }
 
 .tableFixHead {
+  width: fit-content;
+  margin: auto;
   overflow: auto;
   height: 60vh;
 
@@ -30,6 +32,10 @@ table {
   margin: auto;
   border-collapse: collapse;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    text-align: center;
+  }
 
   th, td {
     padding: 15px;

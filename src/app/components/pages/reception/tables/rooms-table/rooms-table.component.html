@@ -17,18 +17,28 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let room of rooms$ | async">
-      <td>{{ room.number }}</td>
-      <td>{{ room.capacity }}</td>
-      <td>{{ room.comfortLevel | titlecase }}</td>
-      <td>{{ room.price }}</td>
-      <td>
-        <button class="secondary-btn">Edit ✎</button>
-      </td>
-      <td>
-        <button (click)="navigateToReservations(room.number)" class="secondary-btn">View ➪</button>
-      </td>
-    </tr>
+    <ng-container *ngIf="(rooms$ | async)?.length; else noData">
+      <tr *ngFor="let room of rooms$ | async">
+        <td>{{ room.number }}</td>
+        <td>{{ room.capacity }}</td>
+        <td>{{ room.comfortLevel | titlecase }}</td>
+        <td>{{ room.price }}</td>
+        <td>
+          <button class="secondary-btn">Edit ✎</button>
+        </td>
+        <td>
+          <button (click)="navigateToReservations(room.number)" class="secondary-btn">View ➪</button>
+        </td>
+      </tr>
+    </ng-container>
+
+    <ng-template #noData>
+      <tr>
+        <td colspan="6" class="no-data-message">
+          <h2>No rooms found</h2>
+        </td>
+      </tr>
+    </ng-template>
     </tbody>
   </table>
 </div>

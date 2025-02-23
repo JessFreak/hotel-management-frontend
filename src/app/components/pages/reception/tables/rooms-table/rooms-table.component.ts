@@ -3,7 +3,7 @@ import { RoomsFilterComponent } from '../../filters/rooms-filters/rooms-filters.
 import { Observable } from 'rxjs';
 import { Room, RoomFilter } from '../../../../../models/room.model';
 import { RoomService } from '../../../../../services/rooms.service';
-import { AsyncPipe, NgForOf, TitleCasePipe } from '@angular/common';
+import { AsyncPipe, NgForOf, NgIf, TitleCasePipe } from '@angular/common';
 import { TableComponent } from '../table.component';
 import { Router } from '@angular/router';
 
@@ -13,7 +13,8 @@ import { Router } from '@angular/router';
     RoomsFilterComponent,
     AsyncPipe,
     TitleCasePipe,
-    NgForOf
+    NgForOf,
+    NgIf
   ],
   templateUrl: './rooms-table.component.html',
   standalone: true,
