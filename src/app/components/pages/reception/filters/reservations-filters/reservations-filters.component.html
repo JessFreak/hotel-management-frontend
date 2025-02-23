@@ -1,0 +1,56 @@
+<div class="filters">
+  <div class="input-group">
+    <label for="roomNumber">Room</label>
+    <input list="roomNumbers" type="number" id="roomNumber" [(ngModel)]="filters.roomNumber">
+    <datalist id="roomNumbers">
+      <option *ngFor="let room of rooms" [value]="room.number"></option>
+    </datalist>
+  </div>
+
+  <div class="input-group">
+    <label for="status">Status</label>
+    <select id="status" [(ngModel)]="filters.status">
+      <option value="reserved">Reserved</option>
+      <option value="checked-in">Checked-In</option>
+      <option value="checked-out">Checked-Out</option>
+      <option value="cancelled">Cancelled</option>
+    </select>
+  </div>
+
+  <div class="input-group">
+    <label for="client">Client</label>
+    <input list="clientsList" type="text" id="client" [(ngModel)]="clientName" (change)="onClientNameChange()">
+    <datalist id="clientsList">
+      <option
+        *ngFor="let client of clients"
+        [value]="client.firstName + ' ' + client.lastName + ' ' + client.passportNumber">
+      </option>
+    </datalist>
+  </div>
+
+  <div class="input-group">
+    <label for="checkIn">Check In</label>
+    <input
+      type="date"
+      id="checkIn"
+      required
+      [(ngModel)]="filters.checkIn"
+      name="checkInDate"
+    >
+  </div>
+
+  <div class="input-group">
+    <label for="checkOut">Check Out</label>
+    <input
+      type="date"
+      id="checkOut"
+      [(ngModel)]="filters.checkOut"
+      name="checkOutDate"
+    >
+  </div>
+
+  <div class="input-group">
+    <button class="secondary-btn" (click)="applyFilters()">Apply Filters ⟲</button>
+    <button class="secondary-btn" (click)="clearFilters()">Clear Filters ✖</button>
+  </div>
+</div>

@@ -4,7 +4,7 @@ import { RoomService } from '../../services/rooms.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgForOf, TitleCasePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RoomsFilterComponent } from './filters/rooms-filters.component';
+import { RoomsFilterComponent } from '../pages/reception/filters/rooms-filters/rooms-filters.component';
 
 @Component({
   selector: 'app-rooms',

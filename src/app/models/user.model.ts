@@ -7,3 +7,10 @@ export interface User {
   passportNumber: string;
   role: string;
 }
+
+export interface UserFilters {
+  email?: string;
+  name?: string;
+  passportNumber?: string;
+  role?: string;
+}

@@ -1,3 +1,9 @@
+<app-reservations-filters
+  [(filters)]="filters"
+  (apply)="loadData()"
+  (clear)="clearFilters()"
+/>
+
 <div class="tableFixHead">
   <table>
     <thead>

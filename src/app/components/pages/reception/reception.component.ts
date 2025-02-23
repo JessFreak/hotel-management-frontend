@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { RoomsFilterComponent } from '../../rooms/filters/rooms-filters.component';
 import { RoomsTableComponent } from './tables/rooms-table/rooms-table.component';
 import { UsersTableComponent } from './tables/users-table/users-table.component';
 import { ReservationsTableComponent } from './tables/reservations-table/reservations-table.component';
@@ -10,7 +9,7 @@ import { ReservationsTableComponent } from './tables/reservations-table/reservat
   selector: 'app-reception',
   templateUrl: './reception.component.html',
   standalone: true,
-  imports: [CommonModule, RoomsFilterComponent, RoomsTableComponent, UsersTableComponent, ReservationsTableComponent],
+  imports: [CommonModule, RoomsTableComponent, UsersTableComponent, ReservationsTableComponent],
   styleUrls: ['./reception.component.css']
 })
 export class ReceptionComponent implements OnInit {

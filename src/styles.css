@@ -105,4 +105,12 @@ input, select {
   input {
     width: 100px;
   }
+
+  input[type="text"] {
+    width: fit-content;
+  }
+
+  input[type="date"] {
+    width: 150px;
+  }
 }

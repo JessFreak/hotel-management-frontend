@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RoomsFilterComponent } from '../../../../rooms/filters/rooms-filters.component';
+import { RoomsFilterComponent } from '../../filters/rooms-filters/rooms-filters.component';
 import { Observable } from 'rxjs';
 import { Room, RoomFilter } from '../../../../../models/room.model';
 import { RoomService } from '../../../../../services/rooms.service';

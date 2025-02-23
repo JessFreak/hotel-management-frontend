@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Reservation, ReservationDetails, ReservationFilter, ReservationPayload } from '../models/reservation.model';
+import { Reservation, ReservationDetails, ReservationFilters, ReservationPayload } from '../models/reservation.model';
 import { Observable } from 'rxjs';
 import { getHttpParams } from './utils';
+import { log } from '@angular-devkit/build-angular/src/builders/ssr-dev-server';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +18,7 @@ export class ReservationsService {
     return this.http.post(`${this.baseUrl}`, reservationForm);
   }
 
-  getReservations (filter: ReservationFilter): Observable<Reservation[]> {
+  getReservations (filter: ReservationFilters): Observable<Reservation[]> {
     const params = getHttpParams(filter);
 
     return this.http.get<Reservation[]>(`${this.baseUrl}`, { params });

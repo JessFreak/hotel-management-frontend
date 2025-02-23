@@ -5,6 +5,8 @@ import { TableComponent } from '../table.component';
 import { ReservationsService } from '../../../../../services/reservations.service';
 import { AsyncPipe, DatePipe, NgForOf, TitleCasePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { RoomsFilterComponent } from '../../filters/rooms-filters/rooms-filters.component';
+import { ReservationsFiltersComponent } from '../../filters/reservations-filters/reservations-filters.component';
 
 @Component({
   selector: 'app-reservations-table',
@@ -13,7 +15,9 @@ import { RouterLink } from '@angular/router';
     DatePipe,
     RouterLink,
     AsyncPipe,
-    NgForOf
+    NgForOf,
+    RoomsFilterComponent,
+    ReservationsFiltersComponent
   ],
   templateUrl: './reservations-table.component.html',
   standalone: true,

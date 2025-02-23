@@ -8,7 +8,7 @@ export abstract class TableComponent implements OnInit {
     this.loadData();
   }
 
-  loadData() {};
+  abstract loadData(): void;
 
   clearFilters () {
     this.filters = {};

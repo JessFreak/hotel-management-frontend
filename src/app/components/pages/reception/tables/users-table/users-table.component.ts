@@ -4,13 +4,15 @@ import { UserService } from '../../../../../services/user.service';
 import { Observable } from 'rxjs';
 import { User } from '../../../../../models/user.model';
 import { AsyncPipe, NgForOf, TitleCasePipe } from '@angular/common';
+import { UsersFiltersComponent } from '../../filters/users-filters/users-filters.component';
 
 @Component({
   selector: 'app-users-table',
   imports: [
     AsyncPipe,
     NgForOf,
-    TitleCasePipe
+    TitleCasePipe,
+    UsersFiltersComponent
   ],
   templateUrl: './users-table.component.html',
   standalone: true,
@@ -24,6 +26,6 @@ export class UsersTableComponent extends TableComponent {
   }
 
   override loadData () {
-    this.users$ = this.userService.getUsers();
+    this.users$ = this.userService.getUsers(this.filters);
   }
 }

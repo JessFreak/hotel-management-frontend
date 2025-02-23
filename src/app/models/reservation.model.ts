@@ -24,7 +24,7 @@ export interface ReservationPayload {
   note?: string;
 }
 
-export interface ReservationFilter {
+export interface ReservationFilters {
   roomNumber?: number ;
   checkIn?: Date;
   checkOut?: Date;
