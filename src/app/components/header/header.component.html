@@ -1,5 +1,5 @@
 <header>
-  <nav>
+  <nav *ngIf="!isMobile">
     <a routerLink="/" class="center">
       <img ngSrc="logo.png" alt="logo" width="70" height="36"/>
       <h1>Aura</h1>
@@ -34,4 +34,38 @@
       </ng-template>
     </div>
   </nav>
+
+  <nav *ngIf="isMobile" class="mobile-menu">
+    <a routerLink="/" class="center">
+      <img ngSrc="logo.png" alt="logo" width="70" height="36"/>
+      <h1>Aura</h1>
+    </a>
+    <div class="center orange-btn" (click)="toggleMenu()">MENU ☰</div>
+  </nav>
+
+  <div *ngIf="isMenuOpen" class="mobile-menu-items">
+    <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
+    <a routerLink="/reservation" routerLinkActive="active-link" class="orange-btn" (click)="closeMenu()">Reservation</a>
+    <div *ngIf="user?.role === 'receptionist'" class="menu" routerLinkActive="active-link">
+      <a>Reception</a>
+      <img ngSrc="arrow-down.png" alt="arrow icon" height="24" width="24"/>
+      <ul class="submenu">
+        <li [routerLink]="['/reception']" [queryParams]="{ tab: 'reservations' }" (click)="closeMenu()">Reservations</li>
+        <li [routerLink]="['/reception']" [queryParams]="{ tab: 'rooms' }" (click)="closeMenu()">Rooms</li>
+        <li [routerLink]="['/reception']" [queryParams]="{ tab: 'users' }" (click)="closeMenu()">Users</li>
+        <li [routerLink]="['/reception']" [queryParams]="{ tab: 'discounts' }" (click)="closeMenu()">Discounts</li>
+      </ul>
+    </div>
+    <ng-container *ngIf="!user; else loggedIn">
+      <a routerLink="/register" routerLinkActive="active-link" (click)="closeMenu()">Register</a>
+      <a routerLink="/login" routerLinkActive="active-link" (click)="closeMenu()">Login</a>
+    </ng-container>
+
+    <ng-template #loggedIn>
+      <a routerLink="/profile" routerLinkActive="active-link" class="orange-btn" (click)="closeMenu()">
+        {{ user?.firstName }} {{ user?.lastName }}
+      </a>
+      <a (click)="logout(); closeMenu()">Logout</a>
+    </ng-template>
+  </div>
 </header>
