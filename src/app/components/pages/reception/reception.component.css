@@ -1,4 +1,8 @@
 main {
+  * {
+    overflow: auto;
+  }
+  overflow-y: hidden;
   flex-direction: column;
   justify-content: flex-start;
 
@@ -57,9 +61,57 @@ table {
   tr:hover {
     background-color: rgba(255, 255, 255, 0.3);
   }
+
+  /* Додаємо стиль для скролу */
+  table {
+    min-width: 800px; /* Потрібно встановити мінімальну ширину таблиці, щоб скрол працював */
+  }
 }
 
 .add-btn {
   display: block;
-  margin: 0 0 10px auto;
+  margin: 1rem 0 10px auto;
+}
+
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filters .input-group {
+    width: 90%;
+  }
+
+  table {
+    font-size: 0.8rem;
+  }
+
+  table th,
+  table td {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  main h1 {
+    display: none;
+  }
+
+  table button {
+    font-size: 0.6rem;
+    padding: 2px;
+  }
+
+  table input {
+    font-size: 1rem;
+    padding: 4px;
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tableFixHead {
+    height: 50vh;
+  }
 }
