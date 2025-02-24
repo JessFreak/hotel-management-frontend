@@ -32,4 +32,20 @@ main {
       }
     }
   }
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 700px) {
+    section .reservations-list {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  h2 {
+    margin-top: 4rem;
+  }
 }

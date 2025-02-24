@@ -52,3 +52,10 @@
 .signup label:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 500px) {
+  .form {
+    padding: 1.5rem;
+    margin: 10px;
+  }
+}
